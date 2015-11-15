@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My To Do List</title>
+    <DIV ALIGN=CENTER>
+    <h1><img src='http://localhost:5000/static/todolist.gif'></h1>
+    </DIV>
+    <h2>My To Do List:</h2>
+  </head>
+  
+      <style = type='text/css'>
+      body
+      {
+        font-size:12px;
+        margin-top:10;
+        font-family:Arial, sans-serif;
+        text-decoration:none;
+        padding:10px 0;
+      }
+      form
+      {
+        font-size:12px;
+        margin-top:20;
+        font-family:Arial, sans-serif;
+        text-decoration:none;
+        padding:15px 0;
+      }
+      
+      table
+      {
+        font-size:12px;
+        margin-top:20;
+        font-family:Arial, sans-serif;
+        text-decoration:none;
+        padding:20px 0;
+      }  
+      </style>
+      
+  <body>
+
+    <form action="/submit" method="post">
+
+      To-do: <br>
+      <input type="text" name="todo"></input>
+      <br>
+    
+      E-Mail: <br>
+      <input type="text" name="emails"></input>
+      <br>
+
+      Priority: <br>
+      <select name="priority_level">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+      <input type="submit" value="Add new item">
+
+      </select>
+    </form>
+
+     <table border="1" style="width:50%">
+      <tr>
+      <td>{% for email in emails %}
+      <li>{{ emails }}</li>
+      {% endfor %}
+      </td>
+        <td>Buy Milk</td> 
+        <td>Low</td>
+      </tr>
+      <tr>
+        <td>{{ todo }}</td>
+        <td>{{ emails }}</td> 
+        <td>{{ priority_level }}</td>
+      </tr>
+    </table>
+
+  </body>
+
+</html>
