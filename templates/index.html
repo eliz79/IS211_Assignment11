@@ -9,72 +9,77 @@
     <h2>My To Do List:</h2>
   </head>
   
-      <style = type='text/css'>
-      body
-      {
-        font-size:12px;
-        margin-top:10;
-        font-family:Arial, sans-serif;
-        text-decoration:none;
-        padding:10px 0;
+<style = type='text/css'>
+body
+    {
+      font-size:12px;
+      margin-top:10;
+      font-family:Arial, sans-serif;
+      text-decoration:none;
+      padding:10px 0;
       }
-      form
-      {
-        font-size:12px;
-        margin-top:20;
-        font-family:Arial, sans-serif;
-        text-decoration:none;
-        padding:15px 0;
+form
+    {
+      font-size:12px;
+      margin-top:20;
+      font-family:Arial, sans-serif;
+      text-decoration:none;
+      padding:15px 0;
       }
       
-      table
-      {
-        font-size:12px;
-        margin-top:20;
-        font-family:Arial, sans-serif;
-        text-decoration:none;
-        padding:20px 0;
+table
+    {
+      font-size:12px;
+      margin-top:20;
+      font-family:Arial, sans-serif;
+      text-decoration:none;
+      padding:20px 0;
       }  
-      </style>
+</style>
       
-  <body>
+<body>
 
-    <form action="/submit" method="post">
+<form action="/submit" method="post">
 
-      To-do: <br>
-      <input type="text" name="todo"></input>
-      <br>
+    To-do: <br>
+    <input type="text" name="todo"></input>
+    <br>
     
-      E-Mail: <br>
-      <input type="text" name="emails"></input>
-      <br>
+    E-Mail: <br>
+    <input type="text" name="emails"></input>
+    <br>
 
-      Priority: <br>
-      <select name="priority_level">
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-      <input type="submit" value="Add new item">
+    Priority: <br>
+    <select name="priority_level">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    <input type="submit" value="Add new item">
 
-      </select>
-    </form>
+    </select>
+</form>
 
-     <table border="1" style="width:50%">
-      <tr>
-      <td>{% for email in emails %}
-      <li>{{ emails }}</li>
-      {% endfor %}
-      </td>
-        <td>Buy Milk</td> 
-        <td>Low</td>
-      </tr>
-      <tr>
+<table border="1" style="width:50%">
+    <thread>
+    <tr>
+        <td>To Do</td>
+        <td>Email</td>
+        <td>Priority</td>
+    </tr>
+
+    </thread>
+    {% for email in emails %}
+    <tr>
         <td>{{ todo }}</td>
         <td>{{ emails }}</td> 
         <td>{{ priority_level }}</td>
       </tr>
-    </table>
+      {% endfor %}
+</table>
 
-  </body>
+<form action="/clear">
+    <input type="submit" value="Clear">
+</form>
 
+</body>
 </html>
